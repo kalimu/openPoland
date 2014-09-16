@@ -3,6 +3,10 @@ openPoland
 
 An R package for communication with `OpenPoland.net API` - a gate to open data in Poland
 
+## Description
+
+With this package you can easily access more than 130 000 000 records in more than 1300 datasets generated in institutions like Central Statistical Office of Poland.
+The access to open data is available via [openData.net](http://openData.net) API.
 
 ## Installing the package
 
