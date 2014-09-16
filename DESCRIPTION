@@ -10,7 +10,7 @@ Description: The OpenPoland package for R is a gate that leads you to open data
     milion records in more than 1 300 datasets generated in institutions like
     Central Statistical Office of Poland.
 License: GPL-3
-URL: http://www.wais.kamil.rzeszow.pl/openPoland
+URL: https://github.com/kalimu/openPoland
 BugReports: https://github.com/kalimu/openPoland
 Imports:
     httr (>= 0.5)
