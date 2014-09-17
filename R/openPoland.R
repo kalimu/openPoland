@@ -1,3 +1,17 @@
+#' Generate R documentation from inline comments.
+#'
+#' An R package for communication with OpenPoland.net API
+#'
+# The only function you're likely to need from \pkg{roxygen2} is
+# \code{\link{roxygenize}}. Otherwise refer to the vignettes to see
+# how to format the documentation.
+#'
+#' @docType package
+#' @name openPoland
+ 
+
+
+
 
 # welcome message
 # detach("package:openPoland", unload=TRUE)
