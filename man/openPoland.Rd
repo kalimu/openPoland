@@ -7,4 +7,10 @@
 \description{
 An R package for communication with OpenPoland.net API
 }
+\seealso{
+\itemize{
+  \item \url{https://github.com/kalimu/openPoland}
+  \item \url{https://openpoland.net/welcome/}
+}
+}
 
