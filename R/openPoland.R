@@ -24,5 +24,14 @@
 # devtools::show_news()
   
     .onAttach <- function(libname, pkgname) {
-      packageStartupMessage("Welcome to the world of open data in Poland!\nIf you find this package useful cite it please. Thank you!\nSee: citation('openPoland')")
+        
+        packageStartupMessage("Welcome to the world of open data in Poland!")
+        packageStartupMessage(paste0('Package version: ',
+                                     packageVersion("openPoland"))
+                              )
+        packageStartupMessage("See: news(package = 'openPoland')")
+        packageStartupMessage("If you find this package useful cite it please. Thank you! ")
+        packageStartupMessage("See: citation('openPoland')")
+        
     }
+    
