@@ -13,6 +13,8 @@ License: GPL-3
 URL: https://github.com/kalimu/openPoland
 BugReports: https://github.com/kalimu/openPoland
 Imports:
-    httr (>= 0.5)
+    rjson (>= 0.2.14),
+    stringr
 Depends:
+    httr (>= 0.5),
     R (>= 3.1.1)
