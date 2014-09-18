@@ -33,5 +33,8 @@
         packageStartupMessage("If you find this package useful cite it please. Thank you! ")
         packageStartupMessage("See: citation('openPoland')")
         
+        cat("\nSetting localization to 'Polish'...\n");
+        Sys.setlocale("LC_ALL", "Polish")
+        
     }
     
