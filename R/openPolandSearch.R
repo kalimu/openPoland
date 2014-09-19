@@ -5,27 +5,26 @@
 
 
 
-    openPolandSearch = function (title = NULL) {
+    openPolandSearch = function (query = NULL, token = NULL) {
         
-        if (is.null(title)) {
+        if (is.null(query)) {
           
             url = "https://openpoland.net/api/list"
             
         } else {
             
-            title = stringr::str_replace_all(title, pattern = " ", "+")
+            query = stringr::str_replace_all(query, pattern = " ", "+")
             # title = unlist(str_split(title, pattern = " ", ))
             # title = str_replace_all(title, pattern = "-", "%2d")
             
-            url = paste0("https://openpoland.net/api/list?q=", 
-                         enc2utf8(title[1])
-                         )
+            url = paste0("https://openpoland.net/api/list/")
         }  
 
         
         
-        dt = openPolandAPI(url)
-    cat(NROW(dt)," datasets found from the query: '",title,"'.\n\n", sep = "")   
+        dt = openPolandAPI(url, query = enc2utf8(query), token = token)
+        
+        cat(NROW(dt)," datasets found from the query: '",query,"'.\n\n", sep = "")   
         
         
         
