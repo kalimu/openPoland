@@ -5,7 +5,7 @@
 
 
 
-    openPolandMeta = function (id, token) {
+    openPolandMeta = function (id, token, verbose = TRUE) {
         
         if (is.null(id)) {
           
@@ -19,8 +19,28 @@
             
         }  
 
-         openPolandQuery(url, token, meta = TRUE)
+         meta = openPolandQuery(url, token, meta = TRUE)
 
+        if (verbose & !is.null(meta)) {
+            
+            
+            cat("\nDataset id:", meta$subKey)
+            cat("\nDataset title:", meta$title)
+            cat("\nYears:", meta$years)
+            cat("\n\n")
+            
+           for (i in seq_along(meta$dims)) {
+                cat(meta$dims[[i]]$name)
+                cat("\n")
+                cat(meta$dims[[i]]$dims)
+                cat("\n")          
+           }
+            
+            
+        }
+
+                
+        meta
         
  
     }
