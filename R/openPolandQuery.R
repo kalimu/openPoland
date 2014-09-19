@@ -8,6 +8,10 @@ openPolandQuery = function (url, token = NULL, meta = FALSE, query = NULL) {
         
 # url = "https://openPoland.net/api/asset/2054/meta"
     
+    throttled = TRUE
+    
+    while  (throttled) {
+        
         response <- GET(url, 
                         # progress()
                         add_headers(Authorization = paste0("Token ", token))
@@ -15,15 +19,43 @@ openPolandQuery = function (url, token = NULL, meta = FALSE, query = NULL) {
         # nprint(response)
         # warn_for_status(response)
         
-        if (status_code(response) == 429 ) {
+        if (status_code(response) != 429 ) { 
             
+            throttled = FALSE
+        
+        } else {
+        
+            
+            seconds = as.numeric(stringr::str_extract(content(response)$detail,
+                                                      pattern = "[0-9]{1,}")
+                                 )
             cat("\n\n")
             cat(content(response)$detail)
+            cat("\nWaiting",round(seconds/60,2),"minutes...")
             cat("\n\n")
-            warn_for_status(response)
-            return()
+            
+            
+            # Sys.sleep(1)
+            
+            waiting_time = seq(1,seconds+1)
+            progress_bar   <- txtProgressBar(1, seconds+1, style=3)
+            for(i in waiting_time){
+                Sys.sleep(1)
+            setTxtProgressBar(progress_bar, i)
+             }
+            
+            throttled = TRUE
+            
+            #warn_for_status(response)
+            # return()
             
         }
+
+        
+        
+        
+    }    
+        
         
         
         # cat('\n')
@@ -39,24 +71,32 @@ openPolandQuery = function (url, token = NULL, meta = FALSE, query = NULL) {
  
         if (meta) {
         
-            cat("\nDataset id:", content$subKey)
-            cat("\nDataset title:", content$title)
-            cat("\nYears:", content$years)
-            cat("\n\n")
+
+            
+            dims = list()
 
             for (i in seq_along(content$dims)) {
 
-                cat(content$dims[[i]]$name)
-                cat("\n")
-                print(data.table::rbindlist(content$dims[[i]]$values))
-                cat("\n")
+                dims = c(dims, list(name=content$dims[[i]]$name,
+                                    dims=as.data.frame(
+                                        data.table::rbindlist(
+                                            content$dims[[i]]$values)
+                                        )
+                                    )
+                         )
             
             }
+            
+            return(list(subKey = content$subKey,
+                        title = content$title,
+                        years = content$years,
+                        dims=dims
+                        ))
                      
             
         } else {
 
-            cat('\r',"Loading page nr:", as.numeric(content$page)+1)
+            cat('\r',"Downloaded pages:", as.numeric(content$page)+1)
             flush.console()
             # cat("\n\n")
 
