@@ -3,13 +3,16 @@
 #' \code{openPolandSearch} returns a data frame with information of available datasets that were found with a given quary.
 #' 
 #' The query from \code{openPolandSearch} function is not case-sensitive.
-#' The token authorization is non-obligatory for database searching. If you want to use Polish diacritis in the query remeber to check if they are properly encoded ("UTF-8") before they are sent to API. If you use Polish localization the function \code{\link{enc2utf8}} should help.
+#' The token authorization is non-obligatory for database searching. 
+#' Polish diacritics should also worked within a query.
 #' The query parameter is send to API, but the subQuery parameter is search locally after downloading the dataset lists from API.
 #' 
 #' @param query A character string.
 #' @param subQuery A characters string.
 #' @param token A character string. 
 #' @return A data table object with datasets ids and titles that have a query string inside them.
+#' @seealso \code{\link{openPolandMeta}} for meta data about datasets, and \code{\link{openPolandData}} for downloading a selected dataset via openPoland API.
+#' 
 #' @examples 
 #' \dontrun{
 #' openPolandSearch() # returns API demo list of datasets
