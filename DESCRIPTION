@@ -1,7 +1,7 @@
 Package: openPoland
 Type: Package
 Title: An R package for communication with OpenPoland.net API
-Version: 0.0.1.05
+Version: 0.0.1.08
 Date: 2014-09-16
 Authors@R: person("Wais", "Kamil", email = "kamil.wais@gmail.com", role =
     c("aut", "cre"))
