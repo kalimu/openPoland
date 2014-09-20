@@ -32,7 +32,7 @@
            for (i in seq_along(meta$dims)) {
                 cat(meta$dims[[i]]$name)
                 cat("\n")
-                cat(meta$dims[[i]]$dims)
+                print(meta$dims[[i]]$dims)
                 cat("\n")          
            }
             

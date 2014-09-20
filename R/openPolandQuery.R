@@ -13,7 +13,7 @@ openPolandQuery = function (url, token = NULL, meta = FALSE, query = NULL) {
     while  (throttled) {
         
         response <- GET(url, 
-                        # progress()
+                        progress(),
                         add_headers(Authorization = paste0("Token ", token))
                         )        
         # nprint(response)
@@ -77,12 +77,14 @@ openPolandQuery = function (url, token = NULL, meta = FALSE, query = NULL) {
 
             for (i in seq_along(content$dims)) {
 
-                dims = c(dims, list(name=content$dims[[i]]$name,
+                dims = c(dims, list(
+                                list(name=content$dims[[i]]$name,
                                     dims=as.data.frame(
                                         data.table::rbindlist(
                                             content$dims[[i]]$values)
                                         )
                                     )
+                                )
                          )
             
             }
@@ -105,7 +107,15 @@ openPolandQuery = function (url, token = NULL, meta = FALSE, query = NULL) {
             
                 if (is.null(query)) {
                     
-                    names(content$results[[1]]) = seq_along(content$results[[1]])        
+                    dims_length = length(content$results[[1]]) - (2+4)
+                    names(content$results[[1]]) = 
+                        c("nts", "name", 
+                          paste0("dims", 1:dims_length),
+                          "year", "unit", "value", "type"
+                          )
+                    
+                    
+                        # seq_along(content$results[[1]])        
 
                 }
                 
