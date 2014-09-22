@@ -5,13 +5,13 @@
 \alias{openPoland-package}
 \title{An R package for communication with OpenPoland.net API}
 \description{
-With \code{openPoland} R package you can easy access milions of records from more thousands of open data datasets, that are generated in Poland.
+With \code{openPoland} R package you can easy access milions of records from  thousands of open data datasets that are generated in Poland.
 }
 \seealso{
 \itemize{
-  \item \url{https://github.com/kalimu/openPoland} [source code]
+  \item \url{https://github.com/kalimu/openPoland} [R package source code]
   \item \url{https://openpoland.net/welcome/} [API homepage]
-  \item \url{http://www.wais.kamil.rzeszow.pl/openPoland} [R package home page in Polish]
+  \item \url{http://www.wais.kamil.rzeszow.pl/openPoland} [R package homepage in Polish]
 }
 }
 
