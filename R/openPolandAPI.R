@@ -6,7 +6,11 @@
      
 
 
-openPolandAPI = function (url, token = NULL, query = NULL) {
+openPolandAPI = function (url, 
+                          token = NULL, 
+                          query = NULL,
+                          nts = NULL,
+                          year = NULL) {
         
  
         
@@ -23,7 +27,9 @@ openPolandAPI = function (url, token = NULL, query = NULL) {
     
         content = openPolandQuery(url = paste0(url, "0"), 
                                   token = token, 
-                                  query = query)    
+                                  query = query,
+                                  nts = nts,
+                                  year = year)    
         
         
         if (is.null(content)) {
@@ -44,7 +50,9 @@ openPolandAPI = function (url, token = NULL, query = NULL) {
             content_next_page = openPolandQuery(url = paste0(url,
                                                              as.character(page)), 
                                                 token = token, 
-                                                query = query
+                                                query = query,
+                                                nts = nts, 
+                                                year = year
                                                 )    
             
             content_all = data.table::rbindlist(list(
@@ -54,7 +62,7 @@ openPolandAPI = function (url, token = NULL, query = NULL) {
             next_page = content_next_page[[1]]
             
         }
-        cat("\n Done! ")
+        cat("\n Done! \n")
 
         content_all
             
