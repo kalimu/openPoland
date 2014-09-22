@@ -1,40 +1,38 @@
-#' Generate R documentation from inline comments.
-#'
 #' An R package for communication with OpenPoland.net API
 #'
+#' With \code{openPoland} R package you can easy access milions of records from more thousands of open data datasets, that are generated in Poland. 
 #'
-# The only function you're likely to need from \pkg{roxygen2} is
-# \code{\link{roxygenize}}. Otherwise refer to the vignettes to see
-# how to format the documentation.
+#'
 #'
 #' @docType package
 #' @name openPoland
 #' @seealso 
 #' \itemize{
-#'   \item \url{https://github.com/kalimu/openPoland}
-#'   \item \url{https://openpoland.net/welcome/} 
+#'   \item \url{https://github.com/kalimu/openPoland} [source code]
+#'   \item \url{https://openpoland.net/welcome/} [API homepage]
+#'   \item \url{http://www.wais.kamil.rzeszow.pl/openPoland} [R package home page in Polish]
 #' }
 #' 
 #'
  # @example  
 
 
-# welcome message
 # detach("package:openPoland", unload=TRUE)
 # devtools::show_news()
   
     .onAttach <- function(libname, pkgname) {
         
-        packageStartupMessage("Welcome to the world of open data in Poland!")
-        packageStartupMessage(paste0('Package version: ',
-                                     packageVersion("openPoland"))
+        packageStartupMessage("\nWelcome to the world of open data in Poland!")
+        packageStartupMessage(paste0('\nOpenPoland R Package version: ',
+                                     utils::packageVersion("openPoland"))
                               )
         packageStartupMessage("See: news(package = 'openPoland')")
-        packageStartupMessage("If you find this package useful cite it please. Thank you! ")
+        packageStartupMessage("\nIf you find this package useful cite it please. Thank you! ")
         packageStartupMessage("See: citation('openPoland')")
         
-        cat("\nSetting localization to 'Polish'...\n");
-        Sys.setlocale("LC_ALL", "Polish")
+        packageStartupMessage("\nRemember to set locallization to 'Polish'!");
+        packageStartupMessage("Use: Sys.setlocale(\"LC_ALL\", \"Polish\")\n")
+        # Sys.setlocale("LC_ALL", "Polish")
         
     }
     

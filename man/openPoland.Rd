@@ -3,14 +3,15 @@
 \name{openPoland}
 \alias{openPoland}
 \alias{openPoland-package}
-\title{Generate R documentation from inline comments.}
+\title{An R package for communication with OpenPoland.net API}
 \description{
-An R package for communication with OpenPoland.net API
+With \code{openPoland} R package you can easy access milions of records from more thousands of open data datasets, that are generated in Poland.
 }
 \seealso{
 \itemize{
-  \item \url{https://github.com/kalimu/openPoland}
-  \item \url{https://openpoland.net/welcome/}
+  \item \url{https://github.com/kalimu/openPoland} [source code]
+  \item \url{https://openpoland.net/welcome/} [API homepage]
+  \item \url{http://www.wais.kamil.rzeszow.pl/openPoland} [R package home page in Polish]
 }
 }
 
