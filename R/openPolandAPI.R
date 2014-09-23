@@ -17,15 +17,19 @@ openPolandAPI = function (url,
         
         if (!is.null(query)) {
             
-            url = paste0(url, "?q=", query, "&page=")
+            # url = paste0(url, "?q=", query, "&page=")
+            url = httr::modify_url(url, query = list(q = query))
             
         } else {
             
-            url = paste0(url, "?page=")
+            # url = paste0(url, "?page=")
+            # url = httr::modify_url(url)
             
         }
     
-        content = openPolandQuery(url = paste0(url, "0"), 
+        content = openPolandQuery(url = httr::modify_url(url, 
+                                                         query = list(page = 0)) ,
+                                      #paste0(url, "0"), 
                                   token = token, 
                                   query = query,
                                   nts = nts,
@@ -47,8 +51,10 @@ openPolandAPI = function (url,
             
             page = as.numeric(page)+1
             
-            content_next_page = openPolandQuery(url = paste0(url,
-                                                             as.character(page)), 
+            content_next_page = openPolandQuery(url = httr::modify_url(url, 
+                                                         query = list(page = page)), 
+                                                    #paste0(url,
+                                                     #        as.character(page)), 
                                                 token = token, 
                                                 query = query,
                                                 nts = nts, 
