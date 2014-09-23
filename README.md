@@ -25,3 +25,10 @@ Remember to install `devtools` package first!
 auth_token = 'bfce48a2c16ed7eb4505f9143efaa1e238160443'
 devtools::install_github("kalimu/openPoland", auth_token=auth_token)
 ```
+
+Remember to set Polish locallization before working with dataset titles!
+
+```
+Sys.setlocale("LC_ALL", "Polish")
+
+```
