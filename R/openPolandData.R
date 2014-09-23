@@ -12,7 +12,7 @@
 #' @param nts A character string. 
 #' @param year A character string.
 #' 
-#' @return A data table object. The first column is a NTS id of territorial unit. The second column is a common name of territorial unit. Then there are from 1 to 5 columns with dimensions labels. All dimensions in a given dataset can be previewed by the \code{\link(openPolandMeta)} function. Last four columns of the data table are: year, measure unit, value and data attribute.
+#' @return A data table object. The first column is a NTS id of territorial unit. The second column is a common name of territorial unit. Then there are from 1 to 5 columns with dimensions labels. All dimensions in a given dataset can be previewed by the \code{\link{openPolandMeta}} function. Last four columns of the data table are: year, measure unit, value and data attribute.
 #' 
 #' @seealso \code{\link{openPolandMeta}} for getting meta information about datasets, and \code{\link{openPolandSearch}} for searching database with a given query.
 # 

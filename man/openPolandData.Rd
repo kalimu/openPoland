@@ -15,7 +15,7 @@ openPolandData(id = NULL, token = NULL, nts = NULL, year = NULL)
 \item{year}{A character string.}
 }
 \value{
-A data table object. The first column is a NTS id of territorial unit. The second column is a common name of territorial unit. Then there are from 1 to 5 columns with dimensions labels. All dimensions in a given dataset can be previewed by the \code{\link(openPolandMeta)} function. Last four columns of the data table are: year, measure unit, value and data attribute.
+A data table object. The first column is a NTS id of territorial unit. The second column is a common name of territorial unit. Then there are from 1 to 5 columns with dimensions labels. All dimensions in a given dataset can be previewed by the \code{\link{openPolandMeta}} function. Last four columns of the data table are: year, measure unit, value and data attribute.
 }
 \description{
 \code{openPolandData} returns a data frame with data from a dataset with given ID. The data could be filtered by year or NTS id.
