@@ -26,14 +26,15 @@ The query parameter is send to API, but the subQuery parameter is search locally
 }
 \examples{
 \dontrun{
-openPolandSearch() # returns API demo list of datasets
+openPolandSearch() # returns list of all datasets
 
 openPolandSearch(query = 'telef')
 
 openPolandSearch(query = "nauczy", subQuery = "akad")
 
-# Polish diacritics are also available
-openPolandSearch(query = enc2utf8('ludno\\u015B\\u0107'))
+# Polish diacritics are also available but remember to set Polish localization first if you want to have proper
+ Sys.setlocale("LC_ALL", "Polish")
+ openPolandSearch(query = 'ludność')
 }
 }
 \seealso{

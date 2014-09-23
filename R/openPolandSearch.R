@@ -15,14 +15,15 @@
 #' 
 #' @examples 
 #' \dontrun{
-#' openPolandSearch() # returns API demo list of datasets
+#' openPolandSearch() # returns list of all datasets
 #' 
 #' openPolandSearch(query = 'telef')
 #' 
 #' openPolandSearch(query = "nauczy", subQuery = "akad")
 #' 
-#' # Polish diacritics are also available 
-#' openPolandSearch(query = enc2utf8('ludno\u015B\u0107'))
+#' # Polish diacritics are also available but remember to set Polish localization first if you want to have proper 
+#' Sys.setlocale("LC_ALL", "Polish")
+#' openPolandSearch(query = 'ludność')
 #' }
 
 openPolandSearch = function (query = NULL, 
@@ -33,24 +34,31 @@ openPolandSearch = function (query = NULL,
     
     if (!is.null(query)) {
       
-        query = stringr::str_replace_all(query, pattern = " ", "+")
+        # query = stringr::str_replace_all(query, pattern = " ", "+")
         # title = str_replace_all(title, pattern = "-", "%2d")
 
-    }  
+    }  else {
+        
+        query = ""
+        
+    }
+        
 
-    dt = openPolandAPI(url, query = enc2utf8(query), token = token)
+    dt = openPolandAPI(url, query = query, token = token)
     
-    cat(NROW(dt)," datasets found from the query: '",query,"'.\n\n", sep = "")   
+    cat(" ",NROW(dt)," datasets found from the query: '",query,"'.\n\n", sep = "")   
     
-    df = as.data.frame(dt)
+    # df = as.data.frame(dt)
     
     if (!is.null(subQuery)) {
         
+        df = as.data.frame(dt)
         df = df[stringr::str_detect(tolower(df$title),
                                     tolower(subQuery[1])), ]
-        
+        dt = data.table::as.data.table(df)
     }
 
-    df
+    # df
+    dt
         
 }
