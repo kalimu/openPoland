@@ -20,19 +20,23 @@
 # detach("package:openPoland", unload=TRUE)
 # devtools::show_news()
   
-    .onAttach <- function(libname, pkgname) {
-        
-        packageStartupMessage("\nWelcome to the world of open data in Poland!")
-        packageStartupMessage(paste0('\nOpenPoland R Package version: ',
-                                     utils::packageVersion("openPoland"))
-                              )
-        packageStartupMessage("See: news(package = 'openPoland')")
-        packageStartupMessage("\nIf you find this package useful cite it please. Thank you! ")
-        packageStartupMessage("See: citation('openPoland')")
-        
-        packageStartupMessage("\nRemember to set locallization to 'Polish'!");
-        packageStartupMessage("Use: Sys.setlocale(\"LC_ALL\", \"Polish\")\n")
-        # Sys.setlocale("LC_ALL", "Polish")
-        
-    }
+.onAttach <- function(libname, pkgname) {
     
+    packageStartupMessage("\nWelcome to the world of open data in Poland!")
+    
+
+    packageStartupMessage(paste0('\nOpenPoland R Package version: ',
+                                 utils::packageVersion("openPoland"))
+                          )
+    packageStartupMessage("See what's new: news(package = 'openPoland')")
+    packageStartupMessage("See help: help(openPoland)")
+    
+    packageStartupMessage("\nIf you find this package useful cite it please. Thank you! ")
+    packageStartupMessage("See: citation('openPoland')")
+    
+    packageStartupMessage("\nRemember to set locallization to 'Polish'!");
+    packageStartupMessage("Use: Sys.setlocale(\"LC_ALL\", \"Polish\")\n")
+    # Sys.setlocale("LC_ALL", "Polish")
+    
+}
+
