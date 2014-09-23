@@ -163,7 +163,7 @@ openPolandQuery = function (url,
                     dims_length = length(content$results[[1]]) - (2+4)
                     names(content$results[[1]]) = 
                         c("nts", "name", 
-                          paste0("dims", 1:dims_length),
+                          paste0("dim", 1:dims_length),
                           "year", "unit", "value", "type"
                           )
                     
