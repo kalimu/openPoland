@@ -201,6 +201,75 @@ Let's see how the number of beavers ("bobry") changes over the year...
             group_by('year', 'dim1')%.% summarize(sum=sum(value)) %>%
             filter(dim1 %in% c("bobry"))
 
+    pander(tab)
+
+<table>
+<colgroup>
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">year</th>
+<th align="center">dim1</th>
+<th align="center">sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">2003</td>
+<td align="center">bobry</td>
+<td align="center">39453</td>
+</tr>
+<tr class="even">
+<td align="center">2004</td>
+<td align="center">bobry</td>
+<td align="center">41823</td>
+</tr>
+<tr class="odd">
+<td align="center">2005</td>
+<td align="center">bobry</td>
+<td align="center">43499</td>
+</tr>
+<tr class="even">
+<td align="center">2006</td>
+<td align="center">bobry</td>
+<td align="center">49040</td>
+</tr>
+<tr class="odd">
+<td align="center">2007</td>
+<td align="center">bobry</td>
+<td align="center">51334</td>
+</tr>
+<tr class="even">
+<td align="center">2008</td>
+<td align="center">bobry</td>
+<td align="center">58847</td>
+</tr>
+<tr class="odd">
+<td align="center">2009</td>
+<td align="center">bobry</td>
+<td align="center">64254</td>
+</tr>
+<tr class="even">
+<td align="center">2010</td>
+<td align="center">bobry</td>
+<td align="center">68993</td>
+</tr>
+<tr class="odd">
+<td align="center">2011</td>
+<td align="center">bobry</td>
+<td align="center">78174</td>
+</tr>
+<tr class="even">
+<td align="center">2012</td>
+<td align="center">bobry</td>
+<td align="center">88974</td>
+</tr>
+</tbody>
+</table>
+
     ggplot(tab,aes(x=factor(year),y=sum, fill = factor(dim1))) +  
     geom_bar(stat="identity",position="dodge")
 
@@ -235,5 +304,63 @@ And wolves ("wilki") and aurochs ("żubry")...
 
 ![plot of chunk
 unnamed-chunk-12](README_files/figure-markdown_strict/unnamed-chunk-12.png)
+
+And finally a table with animal counts form 2012 only for "Podkarpackie"
+voivodship...
+
+    tab =     
+            as.data.frame(data) %>%
+            filter(str_detect(string = nts, pattern = "^318") ) %>%
+            group_by('year', 'dim1')%>% summarize(sum=sum(value)) %>%
+            filter(year %in% c("2012"))
+
+    pander(tab)
+
+<table>
+<colgroup>
+<col width="9%" />
+<col width="18%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">year</th>
+<th align="center">dim1</th>
+<th align="center">sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">2012</td>
+<td align="center">bobry</td>
+<td align="center">13500</td>
+</tr>
+<tr class="even">
+<td align="center">2012</td>
+<td align="center">kozice</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">2012</td>
+<td align="center">niedźwiedzie</td>
+<td align="center">125</td>
+</tr>
+<tr class="even">
+<td align="center">2012</td>
+<td align="center">rysie</td>
+<td align="center">165</td>
+</tr>
+<tr class="odd">
+<td align="center">2012</td>
+<td align="center">wilki</td>
+<td align="center">365</td>
+</tr>
+<tr class="even">
+<td align="center">2012</td>
+<td align="center">żubry</td>
+<td align="center">256</td>
+</tr>
+</tbody>
+</table>
 
 That's all. You can try yourself.
