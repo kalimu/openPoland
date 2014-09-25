@@ -23,7 +23,7 @@
 #' 
 #' # Polish diacritics are also available but remember to set Polish localization first if you want to have proper 
 #' Sys.setlocale("LC_ALL", "Polish")
-#' openPolandSearch(query = 'ludność')
+#' openPolandSearch(query = 'ludno\\u015B\\u0107')
 #' }
 
 openPolandSearch = function (query = NULL, 
