@@ -1,20 +1,22 @@
 openPoland
 ==========
+
 An R package for communication with `OpenPoland.net API` - a gate to
 open data in Poland
 
 Kamil Wais  
 [<http://www.wais.kamil.rzeszow.pl/openpoland>](http://www.wais.kamil.rzeszow.pl/openpoland)
 
-
+Here is the Polish version of this tutorial:
+[<http://www.wais.kamil.rzeszow.pl/pakiet-r-openpoland-tutorial/>](http://www.wais.kamil.rzeszow.pl/pakiet-r-openpoland-tutorial/)
 
 Description
 -----------
 
-With this package you can easily access more than 130 000 000 records in
-more than 1300 datasets generated in institutions like Central
+With `openPoland` package you can easily access milions records in more
+thosands datasets of open data generated in institutions like Central
 Statistical Office of Poland. The access to open data is available via
-[openData.net](http://openData.net) API.
+[openPoland.net](http://openPoland.net) API.
 
 Installing the package
 ----------------------
@@ -161,8 +163,7 @@ that we have data for regions of Poland and for vivodships. We also have
 number of animals from proteted species in Poland changing over the
 years.
 
-First we loading the whole dataset and some additional packages for data
-manipulation and visualization.
+First we need to load the whole date from the dataset.
 
     data = openPolandData(id =  1981, token = token)   
 
@@ -171,6 +172,9 @@ manipulation and visualization.
      Downloaded pages: 2
      Downloaded pages: 3
     ##  Done!
+
+Loading some additional packages for data manipulation and
+visualization...
 
     library(dplyr)
 
@@ -186,11 +190,14 @@ manipulation and visualization.
     ##     intersect, setdiff, setequal, union
 
     library(ggplot2)
+    library(stringr)
+    library(pander)
 
 Let's see how the number of beavers ("bobry") changes over the year...
 
     tab =     
             as.data.frame(data) %>%
+            filter(str_detect(string = nts, pattern = "[0-9][0]{9,9}") ) %>%
             group_by('year', 'dim1')%.% summarize(sum=sum(value)) %>%
             filter(dim1 %in% c("bobry"))
 
@@ -198,13 +205,14 @@ Let's see how the number of beavers ("bobry") changes over the year...
     geom_bar(stat="identity",position="dodge")
 
 ![plot of chunk
-unnamed-chunk-9](README_files/figure-markdown_strict/unnamed-chunk-9.png)
+unnamed-chunk-10](README_files/figure-markdown_strict/unnamed-chunk-10.png)
 
 Than bears ("niedźwiedzie"), moutain goats ("kozice") and lynxes
 ("rysie")...
 
     tab =     
             as.data.frame(data) %>%
+            filter(str_detect(string = nts, pattern = "[0-9][0]{9,9}") ) %>%
             group_by('year', 'dim1')%.% summarize(sum=sum(value)) %>%
             filter(dim1 %in% c("niedźwiedzie","kozice", "rysie"))
 
@@ -212,12 +220,13 @@ Than bears ("niedźwiedzie"), moutain goats ("kozice") and lynxes
     geom_bar(stat="identity",position="dodge")
 
 ![plot of chunk
-unnamed-chunk-10](README_files/figure-markdown_strict/unnamed-chunk-10.png)
+unnamed-chunk-11](README_files/figure-markdown_strict/unnamed-chunk-11.png)
 
 And wolves ("wilki") and aurochs ("żubry")...
 
     tab =     
             as.data.frame(data) %>%
+            filter(str_detect(string = nts, pattern = "[0-9][0]{9,9}") ) %>%
             group_by('year', 'dim1')%.% summarize(sum=sum(value)) %>%
             filter(dim1 %in% c("wilki", "żubry"))
 
@@ -225,6 +234,6 @@ And wolves ("wilki") and aurochs ("żubry")...
     geom_bar(stat="identity",position="dodge")
 
 ![plot of chunk
-unnamed-chunk-11](README_files/figure-markdown_strict/unnamed-chunk-11.png)
+unnamed-chunk-12](README_files/figure-markdown_strict/unnamed-chunk-12.png)
 
 That's all. You can try yourself.
