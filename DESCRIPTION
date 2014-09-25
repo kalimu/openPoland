@@ -1,7 +1,7 @@
 Package: openPoland
 Type: Package
 Title: An R package for communication with OpenPoland.net API
-Version: 0.0.0.15
+Version: 0.0.0.16
 Date: 2014-09-16
 Authors@R: person("Kamil", "Wais", email = "kamil.wais@gmail.com", role =
     c("aut", "cre"))
@@ -14,7 +14,8 @@ URL: https://github.com/kalimu/openPoland
 BugReports: https://github.com/kalimu/openPoland
 Imports:
     rjson (>= 0.2.14),
-    stringr
-Depends:
     httr (>= 0.5),
+    stringr,
+    data.table
+Depends:
     R (>= 3.1.1)

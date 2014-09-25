@@ -13,8 +13,8 @@ openPolandQuery = function (url,
  
     if (is.null(nts) & is.null(year)) {
         
-        response <- GET(url, 
-                        add_headers(Authorization = paste0("Token ", token))
+        response <- httr::GET(url, 
+                        httr::add_headers(Authorization = paste0("Token ", token))
                         )        
         
         content = rjson::fromJSON(content(response, as = 'text', 
@@ -45,8 +45,8 @@ openPolandQuery = function (url,
             
         }
     
-        response <- POST(url, 
-                         add_headers(Authorization = paste0("Token ", token),
+        response <- httr::POST(url, 
+                         httr::add_headers(Authorization = paste0("Token ", token),
                                     'Content-Type' = "application/json"),
                          body = body,
                          encode = "json"
@@ -64,10 +64,10 @@ openPolandQuery = function (url,
         content$page = 0
     }
     
-    warn_for_status(response)
+    httr::warn_for_status(response)
 
     # status code: 429 - throttled
-    if (status_code(response) == 429 ) { 
+    if (httr::status_code(response) == 429 ) { 
 
         cat("You sent too much queries to OpenData API.",
             "\nYou need to wait now...\n")
