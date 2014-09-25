@@ -33,8 +33,8 @@ openPolandSearch(query = 'telef')
 openPolandSearch(query = "nauczy", subQuery = "akad")
 
 # Polish diacritics are also available but remember to set Polish localization first if you want to have proper
- Sys.setlocale("LC_ALL", "Polish")
- openPolandSearch(query = 'ludność')
+Sys.setlocale("LC_ALL", "Polish")
+openPolandSearch(query = 'ludność')
 }
 }
 \seealso{

@@ -30,7 +30,7 @@
 #' }
 
 
-openPolandMeta = function (id, token, verbose = TRUE) {
+openPolandMeta = function (id = NULL, token = NULL, verbose = TRUE) {
         
     if (is.null(id)) {
       

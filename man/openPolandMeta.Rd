@@ -3,7 +3,7 @@
 \alias{openPolandMeta}
 \title{Shows meta information about a specific dataset.}
 \usage{
-openPolandMeta(id, token, verbose = TRUE)
+openPolandMeta(id = NULL, token = NULL, verbose = TRUE)
 }
 \arguments{
 \item{id}{A character string.}
