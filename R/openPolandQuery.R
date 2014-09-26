@@ -17,7 +17,7 @@ openPolandQuery = function (url,
                         httr::add_headers(Authorization = paste0("Token ", token))
                         )        
         
-        content = rjson::fromJSON(content(response, as = 'text', 
+        content = rjson::fromJSON(httr::content(response, as = 'text', 
                                           encoding = "UTF-8")
                                   )
         
