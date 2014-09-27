@@ -11,6 +11,7 @@
 #' @param token A characters string. 
 #' @param nts A character string. 
 #' @param year A character string.
+#' @param remove_duplicated A logical value. If TRUE (default) removes all duplicated records from the datasets.
 #' 
 #' @return A data table object. The first column is a NTS id of territorial unit. The second column is a common name of territorial unit. Then there are from 1 to 5 columns with dimensions labels. All dimensions in a given dataset can be previewed by the \code{\link{openPolandMeta}} function. Last four columns of the data table are: year, measure unit, value and data attribute.
 #' 
@@ -38,7 +39,8 @@
 openPolandData = function (id = NULL, 
                            token = NULL, 
                            nts = NULL,
-                           year = NULL) {
+                           year = NULL,
+                           remove_duplicated = TRUE) {
     
     if (is.null(id)) {
       
@@ -58,18 +60,29 @@ openPolandData = function (id = NULL,
         
         url = paste0("https://openPoland.net/api/asset/",id,"/data/")
         
-        openPolandAPI(url, token)
+        data = openPolandAPI(url, token)
         
     }  else {
         
         url = paste0("https://openPoland.net/api/asset/",id,"/data_filter/")
         
-        openPolandAPI(url = url, 
-                      token = token, 
-                      nts = nts,
-                      year = year)
-               
+        data = openPolandAPI(url = url, 
+                              token = token, 
+                              nts = nts,
+                              year = year)
+        
     }
+    
+    if (remove_duplicated) {
+        
+        data = data[!duplicated(data),]
+        
+    } else {
+        
+        data
+        
+    }
+        
 
 }
 

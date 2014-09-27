@@ -3,7 +3,8 @@
 \alias{openPolandData}
 \title{Loads a full or filtered data from a selected dataset via openPoland API.}
 \usage{
-openPolandData(id = NULL, token = NULL, nts = NULL, year = NULL)
+openPolandData(id = NULL, token = NULL, nts = NULL, year = NULL,
+  remove_duplicated = TRUE)
 }
 \arguments{
 \item{id}{A character string.}
@@ -13,6 +14,8 @@ openPolandData(id = NULL, token = NULL, nts = NULL, year = NULL)
 \item{nts}{A character string.}
 
 \item{year}{A character string.}
+
+\item{remove_duplicated}{If TRUE (default) removes all duplicated records from the datasets.}
 }
 \value{
 A data table object. The first column is a NTS id of territorial unit. The second column is a common name of territorial unit. Then there are from 1 to 5 columns with dimensions labels. All dimensions in a given dataset can be previewed by the \code{\link{openPolandMeta}} function. Last four columns of the data table are: year, measure unit, value and data attribute.
