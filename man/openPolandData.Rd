@@ -15,7 +15,7 @@ openPolandData(id = NULL, token = NULL, nts = NULL, year = NULL,
 
 \item{year}{A character string.}
 
-\item{remove_duplicated}{If TRUE (default) removes all duplicated records from the datasets.}
+\item{remove_duplicated}{A logical value. If TRUE (default) removes all duplicated records from the datasets.}
 }
 \value{
 A data table object. The first column is a NTS id of territorial unit. The second column is a common name of territorial unit. Then there are from 1 to 5 columns with dimensions labels. All dimensions in a given dataset can be previewed by the \code{\link{openPolandMeta}} function. Last four columns of the data table are: year, measure unit, value and data attribute.
@@ -41,6 +41,6 @@ openPolandData(id = 1836, token = token)
 }
 }
 \seealso{
-\code{\link{openPolandMeta}} for getting meta information about datasets, and \code{\link{openPolandSearch}} for searching database with a given query.
+\code{\link{openPolandMeta}} for getting meta information about datasets, \code{\link{openPolandSearch}} for searching database with a given query and \code{\link{openPolandFilter}} for filtering dataset with given criterias.
 }
 
