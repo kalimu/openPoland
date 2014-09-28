@@ -45,7 +45,7 @@ openPolandFilter = function (data = NULL,
     
     if (is.null(data)) {
       
-        stop('\nData is missing.',
+        stop('Data is missing.',
              '\nUse openPolandData() function to download a dataset.')
         
     } 
@@ -78,6 +78,17 @@ openPolandFilter = function (data = NULL,
         nts_pattern_5_7 = "^[0-9]{9,9}[7]{1,1}$"
         nts_pattern_5_8 = "^[0-9]{9,9}[8]{1,1}$"
         nts_pattern_5_9 = "^[0-9]{9,9}[9]{1,1}$"
+    
+    if (!is.null(unit) & (!unit %in% c("region", 
+                                     "voivodship", 
+                                     "subregion", 
+                                     "powiat", 
+                                     "gmina"))
+        ) {
+        
+        stop("There is no such 'unit' defined.")
+        
+    }
     
     if (!is.null(unit)) {
 

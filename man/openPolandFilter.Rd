@@ -26,18 +26,24 @@ A data table object. The first column is a NTS id of territorial unit. The secon
 \examples{
 \dontrun{
 
-openPolandSearch("akad")
-#     id                                     title
-# 1 1836 Nauczyciele akademiccy (NTS-2, 1999-2012)
-
 # token for API authorization
 token = "[alpha-numeric-string-you-get-after-registration-on-https://openpoland.net]"
 
-# a fltered dataset with data for 1999 year in Central Region (NTS = 1000000000)
-openPolandData(id = 1836, token = token,nts = '1000000000', year='1999')
+openPolandMeta(id =  1944, token = token)
 
 # a whole, unfiltered dataset
-openPolandData(id = 1836, token = token)
+data = openPolandData(id = 1944, token = token)
+
+unique(openPolandFilter(data = data, unit="region")$name)
+unique(openPolandFilter(data = data, unit="voivodship")$name)
+unique(openPolandFilter(data = data, unit="subregion")$name)
+unique(openPolandFilter(data = data, unit="powiat")$name)
+unique(openPolandFilter(data = data, unit="gmina")$name)
+
+unique(openPolandFilter(data = data, nts=5)$name)
+
+openPolandFilter(data = data, name="Warszawa")
+
 }
 }
 \seealso{
