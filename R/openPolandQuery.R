@@ -55,7 +55,7 @@ openPolandQuery = function (url,
         
         content = list()
         
-        content$results = rjson::fromJSON(content(response, as = 'text', 
+        content$results = rjson::fromJSON(httr::content(response, as = 'text', 
                                           encoding = "UTF-8")
                                           )
          
@@ -122,6 +122,7 @@ openPolandQuery = function (url,
         }
         
         dt = data.table::rbindlist(content$results)
+        # dt = data.table::as.data.table(content$results)
         
         list(content$has_next, content$page, dt)
 

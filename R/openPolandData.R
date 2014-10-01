@@ -76,6 +76,7 @@ openPolandData = function (id = NULL,
     if (remove_duplicated) {
         
         data = data[!duplicated(data),]
+        data
         
     } else {
         
