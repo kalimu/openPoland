@@ -1,7 +1,7 @@
 Package: openPoland
 Type: Package
 Title: An R package for communication with OpenPoland.net API
-Version: 0.0.0.19
+Version: 0.0.0.20
 Date: 2014-09-16
 Authors@R: person("Kamil", "Wais", email = "kamil.wais@gmail.com", role =
     c("aut", "cre"))
@@ -10,7 +10,8 @@ Description: The OpenPoland package for R is a gate that leads you to the world
     milion of records in thousands of datasets generated and updated by
     institutions like Central Statistical Office of Poland.
 License: MIT + file LICENSE
-URL: https://github.com/kalimu/openPoland
+URL: https://github.com/kalimu/openPoland,
+    http://www.wais.kamil.rzeszow.pl/openPoland
 BugReports: https://github.com/kalimu/openPoland
 Imports:
     rjson (>= 0.2.14),
