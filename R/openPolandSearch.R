@@ -11,7 +11,7 @@
 #' @param subQuery A characters string.
 #' @param token A character string. 
 #' @return A data table object with datasets ids and titles that have a query string inside them.
-#' @seealso \code{\link{openPolandMeta}} for meta data about datasets, and \code{\link{openPolandData}} for downloading a selected dataset via openPoland API.
+#' @seealso \code{\link{openPolandMeta}} for meta data about datasets, \code{\link{openPolandData}} for downloading a selected dataset via openPoland API, and \code{\link{openPolandFilter}} for filtering locally downloaded dataset with given criterias.
 #' 
 #' @examples 
 #' \dontrun{

@@ -9,7 +9,7 @@ openPolandFilter(data = NULL, nts = NULL, unit = NULL, year = NULL,
 \arguments{
 \item{data}{A data table that is a result of \code{\link{openPolandData}} function.}
 
-\item{nts}{A character string.}
+\item{nts}{A character string. Of length one to indicate the level or of length ten to search for a specific NTS id of territorial unit.}
 
 \item{unit}{A character string of predefined values: "region", "voivodship", "subregion", "powiat", "gmina".}
 

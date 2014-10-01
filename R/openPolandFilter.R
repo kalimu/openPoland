@@ -3,9 +3,9 @@
 #' \code{openPolandFilter} filter a dataset with given criterias and returns a data frame.
 #' 
 #' @param data A data table that is a result of \code{\link{openPolandData}} function.
-#' @param nts A character string. 
+#' @param nts A character string. Of length one to indicate the level or of length 10 to search for a specific NTS id of territorial unit.
 #' @param unit A character string of predefined values: "region", "voivodship", "subregion", "powiat", "gmina".
-#' @param year A character string.
+#' @param year A numeric value or character string.
 #' @param name A character string.
 #' 
 #' @return A data table object. The first column is a NTS id of territorial unit. The second column is a common name of territorial unit. Then there are from 1 to 5 columns with dimensions labels. All dimensions in a given dataset can be previewed by the \code{\link{openPolandMeta}} function. Last four columns of the data table are: year, measure unit, value and data attribute.
@@ -32,6 +32,8 @@
 #' unique(openPolandFilter(data = data, nts=5)$name)
 #' 
 #' openPolandFilter(data = data, name="Warszawa")
+#' openPolandFilter(data = data, nts='3265301032')
+#' openPolandFilter(data = data, nts='3265301032', year=2010)
 #' 
 #' }
 
@@ -79,7 +81,7 @@ openPolandFilter = function (data = NULL,
         nts_pattern_5_8 = "^[0-9]{9,9}[8]{1,1}$"
         nts_pattern_5_9 = "^[0-9]{9,9}[9]{1,1}$"
     
-    if (!is.null(unit) & (!unit %in% c("region", 
+    if (!is.null(unit) && (!unit %in% c("region", 
                                      "voivodship", 
                                      "subregion", 
                                      "powiat", 
@@ -122,7 +124,7 @@ openPolandFilter = function (data = NULL,
     
     
 
-    if (!is.null(nts) && nchar(as.character(nts)) == 1) {
+    if (!is.null(nts) & nchar(as.character(nts)) == 1) {
         
 
         if (as.character(nts) == '1') {
