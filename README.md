@@ -36,8 +36,8 @@ install the package from GitHub.
 Remember to install `devtools` package first!
 
     # install.packages('devtools')
-    auth_token = 'bfce48a2c16ed7eb4505f9143efaa1e238160443'
-    devtools::install_github("kalimu/openPoland", auth_token=auth_token)
+    devtools::install_github("kalimu/openPoland")
+
     library(openPoland)
 
 Registering for a token
