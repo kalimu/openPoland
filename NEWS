@@ -1,5 +1,6 @@
-openPoland 0.0.1
+openPoland 0.0.0.21
 ==============
 
-* alpha version released for GitHub for testing purposes
+* alpha version prereleased in GitHub for testing purposes
 * set version numbers to: major.cran.github.dev
+* new functions with documentations (openPolandSearch, openPolandMeta, openPolandData, openPolandFilter)
