@@ -2,15 +2,16 @@ openPoland
 ==========
 
 An R package for communication with `OpenPoland.net API` - a gate to
-open data in Poland
+open data in Poland Kamil Wais
 
-Kamil Wais  
+The package home page (in Polish):  
 [<http://www.wais.kamil.rzeszow.pl/openpoland>](http://www.wais.kamil.rzeszow.pl/openpoland)
 
-Here is the package tutorial in Polish:
+Here is the package tutorial (in Polish):  
 [<http://www.wais.kamil.rzeszow.pl/pakiet-r-openpoland-tutorial/>](http://www.wais.kamil.rzeszow.pl/pakiet-r-openpoland-tutorial/)
 
-[openPoland.net API](http://openPoland.net)
+Information about the openPoland.net project and documentation of the
+API: [<http://openPoland.net>](http://openPoland.net)
 
 Description
 -----------
