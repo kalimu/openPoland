@@ -16,6 +16,7 @@ BugReports: https://github.com/kalimu/openPoland
 Imports:
     rjson (>= 0.2.14),
     httr (>= 0.5),
+    dplyr,
     stringr,
     data.table,
     magrittr
