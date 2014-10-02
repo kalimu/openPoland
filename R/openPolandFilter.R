@@ -124,7 +124,7 @@ openPolandFilter = function (data = NULL,
     
     
 
-    if (!is.null(nts) & nchar(as.character(nts)) == 1) {
+    if (!is.null(nts) && nchar(as.character(nts)) == 1) {
         
 
         if (as.character(nts) == '1') {

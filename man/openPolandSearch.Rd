@@ -38,6 +38,6 @@ openPolandSearch(query = 'ludno\\\\u015B\\\\u0107')
 }
 }
 \seealso{
-\code{\link{openPolandMeta}} for meta data about datasets, and \code{\link{openPolandData}} for downloading a selected dataset via openPoland API.
+\code{\link{openPolandMeta}} for meta data about datasets, \code{\link{openPolandData}} for downloading a selected dataset via openPoland API, and \code{\link{openPolandFilter}} for filtering locally downloaded dataset with given criterias.
 }
 

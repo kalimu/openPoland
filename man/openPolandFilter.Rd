@@ -9,11 +9,11 @@ openPolandFilter(data = NULL, nts = NULL, unit = NULL, year = NULL,
 \arguments{
 \item{data}{A data table that is a result of \code{\link{openPolandData}} function.}
 
-\item{nts}{A character string. Of length one to indicate the level or of length ten to search for a specific NTS id of territorial unit.}
+\item{nts}{A character string. Of length one to indicate the level or of length 10 to search for a specific NTS id of territorial unit.}
 
 \item{unit}{A character string of predefined values: "region", "voivodship", "subregion", "powiat", "gmina".}
 
-\item{year}{A character string.}
+\item{year}{A numeric value or character string.}
 
 \item{name}{A character string.}
 }
@@ -43,6 +43,8 @@ unique(openPolandFilter(data = data, unit="gmina")$name)
 unique(openPolandFilter(data = data, nts=5)$name)
 
 openPolandFilter(data = data, name="Warszawa")
+openPolandFilter(data = data, nts='3265301032')
+openPolandFilter(data = data, nts='3265301032', year=2010)
 
 }
 }
