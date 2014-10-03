@@ -7,3 +7,4 @@ meta.rds
 README.Rmd
 tutorial_pl.Rmd
 tutorial_pl
+inst/doc
