@@ -1,5 +1,5 @@
 
-.onLoad <- function(libname, pkgname) {
+.onAttach <- function(libname, pkgname) {
     
     packageStartupMessage("\nWelcome to the world of open data in Poland!")
     
