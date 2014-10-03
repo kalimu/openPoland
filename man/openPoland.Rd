@@ -3,9 +3,9 @@
 \name{openPoland}
 \alias{openPoland}
 \alias{openPoland-package}
-\title{An R package for communication with OpenPoland.net API}
+\title{An R package for working with open data from Poland}
 \description{
-With \code{openPoland} R package you can easy access milions of records from  thousands of open data datasets that are generated in Poland.
+With \code{openPoland} R package you can easy access milions of records from  thousands of open data datasets that are generated in Poland via openPoland.net API.
 }
 \seealso{
 \itemize{

@@ -1,26 +1,5 @@
-#' An R package for communication with OpenPoland.net API
-#'
-#' With \code{openPoland} R package you can easy access milions of records from  thousands of open data datasets that are generated in Poland. 
-#'
-#'
-#'
-#' @docType package
-#' @name openPoland
-#' @seealso 
-#' \itemize{
-#'   \item \url{https://github.com/kalimu/openPoland} [R package source code]
-#'   \item \url{https://openpoland.net/welcome/} [API homepage]
-#'   \item \url{http://www.wais.kamil.rzeszow.pl/openPoland} [R package homepage in Polish]
-#' }
-#' 
-#'
- # @example  
 
-
-# detach("package:openPoland", unload=TRUE)
-# devtools::show_news()
-  
-.onAttach <- function(libname, pkgname) {
+.onLoad <- function(libname, pkgname) {
     
     packageStartupMessage("\nWelcome to the world of open data in Poland!")
     
@@ -39,4 +18,27 @@
     # Sys.setlocale("LC_ALL", "Polish")
     
 }
-
+#' An R package for working with open data from Poland
+#'
+#' With \code{openPoland} R package you can easy access milions of records from  thousands of open data datasets that are generated in Poland via openPoland.net API. 
+#'
+#'
+#' @docType package
+#' 
+#' @name openPoland
+#' 
+#' @seealso 
+#' \itemize{
+#'   \item \url{https://github.com/kalimu/openPoland} [R package source code]
+#'   \item \url{https://openpoland.net/welcome/} [API homepage]
+#'   \item \url{http://www.wais.kamil.rzeszow.pl/openPoland} [R package homepage in Polish]
+#' }
+#' 
+#' 
+#@keywords internal
+ 
+NULL
+ 
+# detach("package:openPoland", unload=TRUE)
+# devtools::show_news()
+  
