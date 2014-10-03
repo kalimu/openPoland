@@ -21,7 +21,9 @@
 #' 
 #' openPolandSearch(query = "nauczy", subQuery = "akad")
 #' 
-#' # Polish diacritics are also available but remember to set Polish localization first if you want to have proper 
+#' # Polish diacritics are also available but remember 
+#' # to set Polish localization first if you want to work with properly
+#' # formated Polish titles of datasets. 
 #' Sys.setlocale("LC_ALL", "Polish")
 #' openPolandSearch(query = 'ludno\\u015B\\u0107')
 #' }
