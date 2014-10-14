@@ -26,7 +26,7 @@ cafile <- system.file("CurlSSL", "cacert.pem", package = "RCurl")
 #         
         response <- httr::GET(url, 
                         httr::add_headers(Authorization = paste0("Token ", token))
-                      , httr::config(cainfo = cafile)
+                      , httr::config(cainfo = cafile, ssl.verifypeer = FALSE)
                         )        
         
         content = rjson::fromJSON(httr::content(response, as = 'text', 
