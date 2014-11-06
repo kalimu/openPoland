@@ -13,17 +13,9 @@ openPolandQuery = function (url,
  
     if (is.null(nts) & is.null(year)) {
 
-cafile <- system.file("CurlSSL", "cacert.pem", package = "RCurl")
+        cafile <- system.file("CurlSSL", "cacert.pem", package = "RCurl")
 
-# # Read page
-# page <- GET(
-#   "https://ned.nih.gov/", 
-#   path="search/ViewDetails.aspx", 
-#   query="NIHID=0010121048",
-#   config(cainfo = cafile)
-# )        
-#         
-#         
+     
         response <- httr::GET(url, 
                         httr::add_headers(Authorization = paste0("Token ", token))
                       , httr::config(cainfo = cafile, ssl.verifypeer = FALSE)
