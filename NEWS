@@ -1,6 +1,13 @@
-openPoland 0.0.1
+openPoland 0.0.1.1
+==============
+
+* openPolandData: API update - automatically merging metadata with data frame within function
+
+openPoland 0.0.1.0
 ==============
 
 * alpha version released in GitHub for testing purposes
 * set version numbers to: major.cran.github.dev
 * new functions with documentations (openPolandSearch, openPolandMeta, openPolandData, openPolandFilter)
+
+

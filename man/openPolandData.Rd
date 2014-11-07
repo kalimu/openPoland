@@ -4,7 +4,7 @@
 \title{Loads a full or filtered data from a selected dataset via openPoland API.}
 \usage{
 openPolandData(id = NULL, token = NULL, nts = NULL, year = NULL,
-  remove_duplicated = TRUE)
+  dimLabels = TRUE, remove_duplicated = TRUE)
 }
 \arguments{
 \item{id}{A character string.}
@@ -14,6 +14,8 @@ openPolandData(id = NULL, token = NULL, nts = NULL, year = NULL,
 \item{nts}{A character string.}
 
 \item{year}{A character string.}
+
+\item{dimLabels}{Logical value. if TRUE (default) the function automatically merges meta data (dimensions names and labels) with raw data.}
 
 \item{remove_duplicated}{A logical value. If TRUE (default) removes all duplicated records from the datasets.}
 }

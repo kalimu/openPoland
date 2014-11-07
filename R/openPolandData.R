@@ -11,6 +11,7 @@
 #' @param token A characters string. 
 #' @param nts A character string. 
 #' @param year A character string.
+#' @param dimLabels Logical value. if TRUE (default) the function automatically merges meta data (dimensions names and labels) with raw data.
 #' @param remove_duplicated A logical value. If TRUE (default) removes all duplicated records from the datasets.
 #' 
 #' @return A data table object. The first column is a NTS id of territorial unit. The second column is a common name of territorial unit. Then there are from 1 to 5 columns with dimensions labels. All dimensions in a given dataset can be previewed by the \code{\link{openPolandMeta}} function. Last four columns of the data table are: year, measure unit, value and data attribute.
@@ -40,6 +41,7 @@ openPolandData = function (id = NULL,
                            token = NULL, 
                            nts = NULL,
                            year = NULL,
+                           dimLabels = TRUE,
                            remove_duplicated = TRUE) {
     
     if (is.null(id)) {
@@ -76,14 +78,34 @@ openPolandData = function (id = NULL,
     if (remove_duplicated) {
         
         data = data[!duplicated(data),]
-        data
+
+    } 
+    
+
+    if (dimLabels) {
         
-    } else {
+        meta = openPolandMeta(id =  id, token = token, verbose = FALSE)   
         
-        data
+        merged = as.data.frame(data)
         
-    }
+        for (i in 1:NROW(meta$dims)) {
+            
+            dim_name = meta$dims[[i]]$name
+            df_dim = meta$dims[[i]]$dims
+            names(df_dim) = c("id", dim_name)
+            dim_n = paste0('dim',i)    
+
+            merged = merge(x=merged, y=df_dim,
+                           by.x = dim_n, by.y="id")
+            
+        }
+
+
+        data = data.table::as.data.table(merged)
         
+    }    
+    
+    data
 
 }
 
